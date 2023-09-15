@@ -7,17 +7,16 @@ const Task = db.define('tasks', {
         allowNull: false
     },
     description: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
     },
     completed: {
         type: DataTypes.BOOLEAN,
-        default: false
+        defaultValue: false
     },
     userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        field: 'brand_id'
+        field: 'user_id'
     },
     category: {
         type: DataTypes.INTEGER,

@@ -1,6 +1,9 @@
 import express from 'express'
 import db from './utils/database.js'
 import initModels from './models/initModels.js'
+import userRouter from './components/user/user.routes.js'
+import taskRouter from './components/task/task.routes.js'
+import categoryRouter from './components/category/category.routes.js'
 
 initModels()
 
@@ -12,9 +15,13 @@ db.sync()
     .then(() => console.log('base de datos Sync'))
     .catch(err => console.log(err))
 
-const PORT = process.env.PORT ?? 8000
+const PORT = 8000
 
 const app = express()
+
+app.use(express.json()) 
+
+app.use(userRouter, taskRouter, categoryRouter)
 
 app.get('/', (req, res) => {
    res.send('OK')

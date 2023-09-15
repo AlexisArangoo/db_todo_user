@@ -1,9 +1,12 @@
 import { Router } from "express";
-import { createUser } from "./user.controller.js";
+import { allTasksUser, createUser } from "./user.controller.js";
 
 const router = Router()
 
-router.route('/user')
+router.route('/users')
     .post(createUser)
+
+router.route('/users/:id')
+    .get(allTasksUser)
 
 export default router

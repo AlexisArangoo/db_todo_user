@@ -1,8 +1,6 @@
 import { Sequelize } from "sequelize";
 import "dotenv/config"
-console.log({...(process.env.NODE_ENV === "production"
-? { dialecOptions: { ssl: { required: true, rejectUnauthorized: false } } }
-: {})})
+
 const db = new Sequelize({
     host: process.env.DB_HOST,
     username: process.env.DB_USER,
