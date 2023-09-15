@@ -3,7 +3,9 @@ import db from './utils/database.js'
 import initModels from './models/initModels.js'
 import userRouter from './components/user/user.routes.js'
 import taskRouter from './components/task/task.routes.js'
+import  cors  from 'cors'
 import categoryRouter from './components/category/category.routes.js'
+
 
 initModels()
 
@@ -20,6 +22,8 @@ const PORT = 8000
 const app = express()
 
 app.use(express.json()) 
+
+app.use(cors())
 
 app.use(userRouter, taskRouter, categoryRouter)
 
